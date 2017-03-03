@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+img {
+    width: 100%;
+}
+.logo {
+    width: 120px;
+    height: 100px;
+}
+.slogan {
+    font-family: 'Poiret One', cursive;
+    padding: 10px;
+    background-color:#3772FF;
+    margin: 0 auto;
+}
+body {
+    background: url(../img/tree_bark.png);
+}
+.signup {
+    text-align: center;
+}
+
