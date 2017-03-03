@@ -1,8 +1,8 @@
 document.querySelector('#signupButton').addEventListener('click', signup);
 
-// if (location.href.includes('logout')) {
-//     document.querySelector('#loggedout').innerHTML = '<div class="alert alert-warning text-center">Logged out successfully.</div>';
-// }
+if (location.href.includes('logout')) {
+    document.querySelector('#loggedout').innerHTML = '<div class="alert alert-warning text-center">Logged out successfully.</div>';
+}
 
 function signup() {
     var name = document.querySelector('#name').value;
@@ -10,12 +10,12 @@ function signup() {
     var password = document.querySelector('#password').value;
     var avatar = document.querySelector('#avatar').value;
 
-    fetch('https://ef3e3b94.ngrok.io/signup', {
+    fetch('https://warm-woodland-79592.herokuapp.com/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        
+
         // Back-end controls the left side, properties, of this object
         // Front-end controls the variables names and values on the right side
         body: JSON.stringify({
@@ -29,12 +29,12 @@ function signup() {
             return response.json();
         })
         .then(function(response) {
-            // console.log(response);
+            console.log(response);
 
-            if (response.token) {
+            if (response.api_token) {
                 // Saves any string into a named spot within your browser for the current domain.
-                sessionStorage.setItem('token', response.token);
-                location.href = 'users.html';
+                sessionStorage.setItem('token', response.api_token);
+                location.href = 'chirps.html';
             }
             else {
                 alert('There was an error. Check out your console.');

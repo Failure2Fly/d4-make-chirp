@@ -4,7 +4,7 @@ function login() {
     var email = document.querySelector('#email').value;
     var password = document.querySelector('#password').value;
 
-    fetch('https://ef3e3b94.ngrok.io/login', {
+    fetch('https://warm-woodland-79592.herokuapp.com/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -16,7 +16,7 @@ function login() {
             username_email: email,
             password: password,
         })
-        
+
     })
         .then(function(response) {
             return response.json();
@@ -24,10 +24,11 @@ function login() {
         .then(function(response) {
             // console.log(response);
 
-            if (response.token) {
+            if (response.api_token) {
                 // Saves any string into a named spot within your browser for the current domain.
-                sessionStorage.setItem('token', response.token);
-                location.href = 'users.html';
+                sessionStorage.setItem('token', response.api_token);
+                location.href = 'chirps.html';
+                // console.log(response.api_token)
             }
             else {
                 alert('There was an error. Check out your console.');

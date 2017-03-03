@@ -6,8 +6,8 @@ img {
     width: 100%;
 }
 .logo {
-    width: 120px;
-    height: 100px;
+    width: 80px;
+    height: 60px;
 }
 .slogan {
     font-family: 'Poiret One', cursive;
@@ -16,9 +16,76 @@ img {
     margin: 0 auto;
 }
 body {
-    background: url(../img/tree_bark.png);
+    background: url(../img/wood_pattern_@2X.png);
 }
 .signup {
     text-align: center;
+}
+.navbar-chirps {
+    border: solid;
+    color:black;
+    padding: 20px;
+    background-color:#7FB069 
+}
+.avatar {
+    height: 140px;
+    width: 140px;
+    margin: 10px;
+}
+.chirps {
+    border: solid;
+    color: black;
+    background-color: white;
+    margin: 20px;
+    float: right;
+    display: flex;
+    flex-direction: row;
+}
+.chirpies {
+    border: solid;
+    color: black;
+    background-color: white;
+    margin: 20px;
+    float: left;
+    display: flex;
+    flex-direction: row;
+}
+.message-box {
+    padding: 10px;
+}
+.info-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.date {
+    float: right;
+}
+.hi-icon-effect-4 .hi-icon {
+    width: 92px;
+    height: 92px;
+    box-shadow: 0 0 0 4px rgba(255,255,255,1);
+}
+.hi-icon {
+    display: inline-block;
+    font-size: 0px;
+    cursor: pointer;
+    margin: 15px 30px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+}
+#logout {
+  float: right;
+  font-size: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#logout:hover {
+  transform: scale(2) rotate(360deg);
 }
 
