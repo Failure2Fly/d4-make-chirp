@@ -27,6 +27,7 @@ function login() {
             if (response.api_token) {
                 // Saves any string into a named spot within your browser for the current domain.
                 sessionStorage.setItem('token', response.api_token);
+                sessionStorage.setItem('email', response.username_email)
                 location.href = 'chirps.html';
                 // console.log(response.api_token)
             }

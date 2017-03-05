@@ -21,11 +21,19 @@ body {
 .signup {
     text-align: center;
 }
+/*.click-profile {
+    display: flex;
+    flex-direction: column;
+}*/
 .navbar-chirps {
     border: solid;
     color:black;
     padding: 20px;
     background-color:#7FB069 
+}
+.profile-pic {
+    height: 80px;
+    width: 80px;
 }
 .avatar {
     height: 140px;
@@ -55,29 +63,11 @@ body {
 }
 .info-row {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
 }
 .date {
     float: right;
-}
-.hi-icon-effect-4 .hi-icon {
-    width: 92px;
-    height: 92px;
-    box-shadow: 0 0 0 4px rgba(255,255,255,1);
-}
-.hi-icon {
-    display: inline-block;
-    font-size: 0px;
-    cursor: pointer;
-    margin: 15px 30px;
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    text-align: center;
-    position: relative;
-    z-index: 1;
-    color: #fff;
 }
 #logout {
   float: right;
