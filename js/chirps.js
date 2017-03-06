@@ -34,7 +34,7 @@ function sendMessage() {
 
     document.querySelector('#message').value = '';
 
-    fetch('https://warm-woodland-79592.herokuapp.com/message', {
+    fetch('https://chirpyapp.herokuapp.com/message', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -63,56 +63,69 @@ getUsers();
 
 function getUsers() {
     var token = sessionStorage.getItem('token');
-    var email = sessionStorage.getItem('email');
 
-    fetch('https://warm-woodland-79592.herokuapp.com/messages_index', {
-        // Method is set as a post. 
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            api_token: token,
-        // It is sending the username_email along with the token.
-            username_email: email
-        })
-    })
+    fetch('https://chirpyapp.herokuapp.com/user_list?api_token=' + token) 
     .then(function(response) {
         return response.json();
     })
     .then(function(response) {
-        renderUsersList(user);
+        renderUsersList(response);
     })
-    // then right before the function closes it clears the email so it cannot be seen in webbrowser. 
-   clearStorage();
+        // method: 'GET',
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        // body: JSON.stringify({
+        //     api_token: token,
+        // })
+
+    
+    // .then(function(response) {
+    //     return response.json();
+    // })
+    // .then(function(response) {
+    //     renderUsersList(response);
+    // })
+    // clearStorage();
 }
 
-function clearStorage() {
-    sessionStorage.removeItem('email');
-};
+
+// function clearStorage() {
+//     sessionStorage.removeItem('email');
+// };
 
 
 function renderUsersList(users) {
-
+    console.log(users)
     users.forEach(function(user) {
-        var userMessage = `<div data-id="${user.id}" class="chirpies col-sm-8">
+        console.log(user)
+        var userMessage = `<div class="chirpies col-sm-8">
                     <img class="avatar" src="${user.avatar_url}">
                     <section>
                         <div class="message-box">
                             <div class="info-row">
-                            <h4>${user.username_email}/h4>
-                            <button type="button" class="btn btn-info">
-                                <span id="follow" class="glyphicon                        glyphicon-plus"                        aria-hidden="true"></span>                     Follow
-                            </button>
-                        </div>
-                        <div class="message-row">
-                            <h5>${user.message} + '.'</h5>
-                            <h6 class="date">3.3.17 12:12pm</h6>
-                        </div>
+                                <h4>${user.name}</h4>
+                                <button type="button" class="btn btn-info">
+                                    <span id="follow" data-id="${user.id}"  class="glyphicon                             glyphicon-plus"                 aria-hidden="true"></span>                                    Follow
+                                </button>
+                            </div>
+                                <div class="message-row">
+                                <h5>${user.messages.body}</h5>
+                                <h6 class="date">3.3.17 12:12pm</h6>
+                            </div>
                         </div>
                     </section>
                 </div>`;
 
         document.querySelector('#posts').innerHTML += userMessage;
-    });
+    })
+//     var me = user.messages
+//     console.log(me)
+//    me.forEach(function(message){
+//             var jeff = `<div class="message-row">
+//                             <h5>${message}</h5>
+//                             <h6 class="date">3.3.17 12:12pm</h6>
+//                         </div>`
+//             document.querySelector('#posts').innerHTML += me;
+//         })
 }

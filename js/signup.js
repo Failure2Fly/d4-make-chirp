@@ -10,7 +10,7 @@ function signup() {
     var password = document.querySelector('#password').value;
     var avatar = document.querySelector('#avatar').value;
 
-    fetch('https://warm-woodland-79592.herokuapp.com/signup', {
+    fetch('https://chirpyapp.herokuapp.com/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

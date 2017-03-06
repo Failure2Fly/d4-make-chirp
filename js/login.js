@@ -4,7 +4,7 @@ function login() {
     var email = document.querySelector('#email').value;
     var password = document.querySelector('#password').value;
 
-    fetch('https://warm-woodland-79592.herokuapp.com/login', {
+    fetch('https://chirpyapp.herokuapp.com/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
