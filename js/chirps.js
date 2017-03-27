@@ -59,9 +59,9 @@ function sendMessage() {
         });
 }
 
-getUsers();
+getMessages();
 
-function getUsers() {
+function getMessages() {
     var token = sessionStorage.getItem('token');
 
     fetch('https://chirpyapp.herokuapp.com/user_list?api_token=' + token) 
@@ -95,10 +95,10 @@ function getUsers() {
 // };
 
 
-function renderUsersList(users) {
-    console.log(users)
-    users.forEach(function(user) {
-        console.log(user)
+function renderMessagesList(messages) {
+    console.log(messages)
+    users.forEach(function(messages) {
+        console.log(messages)
         var userMessage = `<div class="chirpies col-sm-8">
                     <img class="avatar" src="${user.avatar_url}">
                     <section>
